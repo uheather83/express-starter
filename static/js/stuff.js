@@ -5,14 +5,17 @@ $('#say_hello').click(function() {
   alert('Hello World!')
 });
 
-
 // Problem 2 (Houdini) ------------------------------------------------------
 $('#disappear').click(function() {
-  //WRITE CODE HERE
+  $('#disappear').hide();
 });
 
 $('#reappear').click(function() {
-  //WRITE CODE HERE
+  $('#disappear').show();
+});
+
+$('#tickle_me').click(function() {
+  $('#tickled_text').css('color','pink');
 });
 
 
