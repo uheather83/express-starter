@@ -8,12 +8,10 @@ $(document).ready(function() {
   });
 
 $('#p1').click(function() {
-	context.fillStyle = 'pink';
     context.strokeRect(15,20,50,100);
   });
 
 $('#p2').click(function() {
-	context.fillStyle = 'pink';
     context.strokeRect(100,125,40,40);
   });
 
@@ -34,8 +32,28 @@ $('#p4').click(function() {
 $('#p5').click(function() {
     context.moveTo(80,80);
     context.lineTo(15,15);
-    context.strokeStyle = 'orange';
     context.stroke();
+  });
+
+$('#p6').click(function() {
+	context.strokeStyle = 'green';
+    context.strokeRect(30,40,200,22);
+  });
+
+$('#p7').click(function() {
+	context.fillStyle = 'red';
+    context.beginPath();
+    context.strokeStyle = 'red';
+    context.arc(230,235,50,0,2*Math.PI);
+    context.fill();
+    context.closePath();
+  });
+
+$('#p8').click(function() {
+	context.fillStyle = 'yellow';
+	context.strokeStyle = 'blue';
+	context.strokeRect(100,125,40,40);
+    context.fillRect(100,125,40,40);
   });
   //---------------------------------------------------------------------------
   //Write your code for p1-p12 here
