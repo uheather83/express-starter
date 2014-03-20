@@ -1,12 +1,17 @@
 $('#toggle_img').click(function() {
-	if ($('#toggle.img').text() === "Go Away!") {
-		$('#main_img').hide();
-		$('#toggle.img').text("Come Back!");
-} else if ($('#toggle.img').text() === "Come Back!") {
-	$('#main_img').show();
-	$('#toggle.img').text("Go Away!");
-	}	
+     if ($('#toggle_img').text() === 'Go Away!') {
+		 $('#main_img').hide()
+		 $('#toggle_img').text('Come Back');
+	} else {
+		$('#main_img').show()
+	 	$('#toggle_img').text('Go Away!');
+	}
 });
+
+
+
+
+
 
 // Problem 3 (Swap Em) -----------------------------------------------
 

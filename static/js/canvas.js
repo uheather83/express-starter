@@ -12,7 +12,7 @@ $('#p1').click(function() {
   });
 
 $('#p2').click(function() {
-    context.strokeRect(100,125,40,40);
+    context.strokeRect(80,12,40,40);
   });
 
 $('#p3').click(function() {
@@ -55,8 +55,20 @@ $('#p8').click(function() {
 	context.strokeRect(100,125,40,40);
     context.fillRect(100,125,40,40);
   });
+
+$('#p9').click(function() {
+for (var i = 0; i <= 4; i++) {
+        context.strokeRect(50*i,0,50,50); }
+});
+
+
+$('#p10').click(function() {
+for (var i = 0; i <= 99; i++) {
+        context.strokeRect(5*i,0,5,5); }
+});
+
+});
   //---------------------------------------------------------------------------
   //Write your code for p1-p12 here
   //
 
-});
