@@ -75,6 +75,28 @@ var drawSquare2 = function(x, y, sideLen, color) {
     drawSquare2(75,75,50,'red')
   });
 
+var drawTriplet = function(x,y,color) {
+    context.strokeStyle = color;
+    context.moveTo(x,y);
+    drawCircle2(x+87.5,y+37.5,50, color);
+    drawCircle2(x+50,y+100,50, color);
+    drawCircle2(x+125,y+100,50, color);
+}
+
+ $('#p6').click(function() {
+    drawTriplet(50,50, 'green');
+  });
+
+ $('#p7').click(function() {
+    drawTriplet(100,150, 'blue');
+  });
+
+$('#p8').click(function() {
+    drawTriplet(50,50, 'red');
+    drawTriplet(300,80, 'blue');
+    drawTriplet(80,300, 'green');
+    drawTriplet(250,250, 'black');
+  });
   // Write drawTriplet function here
 
   // Challenge:
