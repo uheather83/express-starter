@@ -13,32 +13,51 @@ $(document).ready(function() {
   var b0 = {
     x:0,
     y:0,
-    rad:10
+    rad:10,
+    xv:5,
+    yv:5
   };
 
   var b1 = {
     x:50,
     y:50,
-    rad:30
+    rad:30,
+    xv:5,
+    yv:5
   };
 
   var b2 = {
     x:80,
     y:80,
-    rad:40
+    rad:40,
+    xv:5,
+    yv:5
   };
   balls.push(b0);
   balls.push(b1);
   balls.push(b2);
   var updateGame = function() {
+    context.clearRect(0,0,canvas.width, canvas.height);
     for (var i = 0; i < balls.length; i++) {
+    balls[i].x+=balls[i].xv;
+    balls[i].y+=balls[i].yv;
+    if ((balls[i].yv>0 && balls[i].y + balls[i].rad >= canvas.height)
+      ||(balls[i].yv<0 && balls[i].y -balls[i].rad <=0)) {
+      balls[i].yv = -balls[i].yv;
+    }
+    if ((balls[i].xv>0 && balls[i].x + balls[i].rad >= canvas.width)
+      ||(balls[i].xv<0 && balls[i].x -balls[i].rad<=0)) {
+      balls[i].xv = -balls[i].xv;
+    }
     
     context.fillStyle = 'blue';
     context.beginPath();
     context.arc(balls[i].x,balls[i].y,balls[i].rad,0,2*Math.PI);
     context.fill();
     context.closePath();
+  
 }
+  setTimeout(updateGame,10);
 };
 
 
