@@ -7,7 +7,7 @@ $(document).ready(function() {
   var height = canvas.height;
   var numBalls = 10
   var balls = [];
-
+  var reactions = [];
  for (var i = 0; i < numBalls; i++) {
   var b_new = {
     x:width * Math.random(),
@@ -40,6 +40,14 @@ $(document).ready(function() {
     context.closePath();
   
 }
+for (var i = 0; i < reactions.length; i++) {
+    context.fillStyle = 'green';
+    context.beginPath();
+    context.arc(reactions[i].x,reactions[i].y,reactions[i].rad,0,2*Math.PI);
+    context.fill();
+    context.closePath();
+}
+
   requestAnimationFrame(updateGame);
 };
 
@@ -49,14 +57,12 @@ $(document).ready(function() {
     // Find the mouse x and y relative to the top-left corner of the canvas
     var x = e.pageX - $(this).offset().left;
     var y = e.pageY - $(this).offset().top;
-    var b_new = {
+    var reaction = {
     x:x,
     y:y,
-    rad:15,
-    xv:9 * Math.random(),
-    yv:6 * Math.random()
+    rad:30
     };
-  balls.push(b_new);
+  reactions.push(reaction);
   });
 
   updateGame();
