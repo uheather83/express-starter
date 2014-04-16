@@ -5,11 +5,7 @@ $(document).ready(function() {
   var context = canvas.getContext('2d');
   var width = canvas.width;
   var height = canvas.height;
-
-  // PUT STUFF HERE
-
-  // Run an interation of the game
-  var numBalls = 20
+  var numBalls = 10
   var balls = [];
 
  for (var i = 0; i < numBalls; i++) {
@@ -23,7 +19,6 @@ $(document).ready(function() {
   balls.push(b_new);
 }
   
-
   var updateGame = function() {
     context.clearRect(0,0,canvas.width, canvas.height);
     for (var i = 0; i < balls.length; i++) {
@@ -54,7 +49,14 @@ $(document).ready(function() {
     // Find the mouse x and y relative to the top-left corner of the canvas
     var x = e.pageX - $(this).offset().left;
     var y = e.pageY - $(this).offset().top;
-    // PUT STUFF HERE
+    var b_new = {
+    x:x,
+    y:y,
+    rad:15,
+    xv:9 * Math.random(),
+    yv:6 * Math.random()
+    };
+  balls.push(b_new);
   });
 
   updateGame();
