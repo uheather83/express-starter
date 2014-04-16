@@ -9,33 +9,21 @@ $(document).ready(function() {
   // PUT STUFF HERE
 
   // Run an interation of the game
+  var numBalls = 20
   var balls = [];
-  var b0 = {
-    x:0,
-    y:0,
-    rad:10,
-    xv:5,
-    yv:5
-  };
 
-  var b1 = {
-    x:50,
-    y:50,
-    rad:30,
-    xv:5,
-    yv:5
+ for (var i = 0; i < numBalls; i++) {
+  var b_new = {
+    x:width * Math.random(),
+    y:height * Math.random(),
+    rad:15,
+    xv:9 * Math.random(),
+    yv:6 * Math.random()  
   };
+  balls.push(b_new);
+}
+  
 
-  var b2 = {
-    x:80,
-    y:80,
-    rad:40,
-    xv:5,
-    yv:5
-  };
-  balls.push(b0);
-  balls.push(b1);
-  balls.push(b2);
   var updateGame = function() {
     context.clearRect(0,0,canvas.width, canvas.height);
     for (var i = 0; i < balls.length; i++) {
@@ -57,7 +45,7 @@ $(document).ready(function() {
     context.closePath();
   
 }
-  setTimeout(updateGame,10);
+  requestAnimationFrame(updateGame);
 };
 
 
