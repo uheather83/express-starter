@@ -30,7 +30,13 @@ $(document).ready(function() {
         var dist = Math.sqrt(xdiff*xdiff + ydiff*ydiff)
           if(dist<ball1.rad + ball2.rad) {
           collided = true;
-          if (collided = true) {
+          if (collided === true) {
+          var reaction = {
+            x:balls[i].x,
+            y:balls[i].y,
+            rad:1
+            };
+            reactions.push(reaction);
           balls.splice(i,1);
           i--;
           }
