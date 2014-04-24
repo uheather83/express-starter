@@ -21,14 +21,19 @@ $(document).ready(function() {
   
   var updateGame = function() {
     for(var i=0; i<balls.length; i++){
+      var collided = false
       for(var j = 0; j<reactions.length; j++) {
         var ball1 = balls[i];
         var ball2 = reactions[j];
         var xdiff = ball1.x - ball2.x;
         var ydiff = ball1.y - ball2.y;
         var dist = Math.sqrt(xdiff*xdiff + ydiff*ydiff)
-        if(dist<ball1.rad + ball2.rad) {
-          alert("BOOM");
+          if(dist<ball1.rad + ball2.rad) {
+          collided = true;
+          if (collided = true) {
+          balls.splice(i,1);
+          i--;
+          }
         }
       }
     }
