@@ -23,7 +23,11 @@ $(document).ready(function() {
     for(var i=0; i<balls.length; i++){
       var collided = false
       for(var j = 0; j<reactions.length; j++) {
+        if (balls.length === 0) {
+          break;
+        }
         var ball1 = balls[i];
+        
         var ball2 = reactions[j];
         var xdiff = ball1.x - ball2.x;
         var ydiff = ball1.y - ball2.y;
@@ -38,7 +42,9 @@ $(document).ready(function() {
             };
             reactions.push(reaction);
           balls.splice(i,1);
-          i--;
+          if (i !=0) {
+            i--;
+          }
           }
         }
       }
