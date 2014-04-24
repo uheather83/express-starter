@@ -27,7 +27,6 @@ $(document).ready(function() {
           break;
         }
         var ball1 = balls[i];
-        
         var ball2 = reactions[j];
         var xdiff = ball1.x - ball2.x;
         var ydiff = ball1.y - ball2.y;
@@ -38,7 +37,8 @@ $(document).ready(function() {
           var reaction = {
             x:balls[i].x,
             y:balls[i].y,
-            rad:1
+            rad:1,
+            timer:0
             };
             reactions.push(reaction);
           balls.splice(i,1);
@@ -63,8 +63,19 @@ $(document).ready(function() {
       }
       };
     for (var i = 0; i < reactions.length; i++) {
-      if (reactions[i].rad <30) {
-        reactions[i].rad++; }
+      reactions[i].timer ++;
+      if (reactions[i].timer > 200) {
+        reactions[i].rad --;
+      }
+      else if (reactions[i].rad <30) {
+        reactions[i].rad++; 
+      }
+        if(reactions[i].rad ===0) {
+          reactions.splice(i,1);
+          if (i !=0) {
+            i--;
+          }
+        }
       }
   
     for (var i = 0; i < reactions.length; i++) {
@@ -95,7 +106,8 @@ $(document).ready(function() {
     var reaction = {
     x:x1,
     y:y1,
-    rad:1
+    rad:1,
+    timer:0
     };
   reactions.push(reaction);
   });
