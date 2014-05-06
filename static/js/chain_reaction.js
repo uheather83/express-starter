@@ -5,9 +5,11 @@ $(document).ready(function() {
   var context = canvas.getContext('2d');
   var width = canvas.width;
   var height = canvas.height;
-  var numBalls = 10
+  var numBalls = 10;
   var balls = [];
   var reactions = [];
+  var reacting = false;
+  var numReacted = 0;
  for (var i = 0; i < numBalls; i++) {
   var b_new = {
     x:width * Math.random(),
@@ -45,6 +47,7 @@ $(document).ready(function() {
           if (i !=0) {
             i--;
           }
+          numReacted++
           }
         }
       }
@@ -94,13 +97,16 @@ $(document).ready(function() {
     context.closePath();
   }
     requestAnimationFrame(updateGame);
+    context.fillStyle = "green";
+  context.font = "20px Arial";
+    context.fillText("Reactions: " + numReacted, 20,20)
 
   };
 
 
   // Handle a canvas click event
   $('#game_canvas').click(function(e) {
-    // Find the mouse x and y relative to the top-left corner of the canvas
+   if (reacting == false) { 
     var x1 = e.pageX - $(this).offset().left;
     var y1 = e.pageY - $(this).offset().top;
     var reaction = {
@@ -109,8 +115,11 @@ $(document).ready(function() {
     rad:1,
     timer:0
     };
-  reactions.push(reaction);
-  });
+  reactions.push(reaction); 
+  reacting = true;
+}
+
+  }); 
 
   updateGame();
 });
